@@ -1,0 +1,161 @@
+.flex-space {
+    flex: 5;
+}
+.flex-space2 {
+    flex: 1;
+}
+.navbar-text{
+    flex:5;
+    text-align: center;
+}
+.navbar-nav{
+    flex: 2;
+}
+
+
+.navbar-light .navbar-text {
+    color: #000000;
+    font-style: italic;
+    font-family: 'cursive', sans-serif;
+    font-weight: bold; 
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000000;
+    flex: 1;
+}
+
+.bg-light{
+    background-color: #b4afa6!important;
+}
+
+body{
+    background-color: #c4bfb7;
+}
+
+.custom-container{
+    display: block;
+    margin: 0 auto;
+    color: #10035e;
+    background-color: #b4afa6;
+}
+
+.foto{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
+
+.h1-class{
+    font-size: 80px; 
+    font-family: 'Lobster', cursive;
+}
+
+.menu{
+    padding-top: 10%;
+    display: flex; /* İç içe geçen elemanları yatay hizalama */
+    justify-content: space-between; /* Elemanları boşluk bırakarak hizala */
+    margin-bottom: 10%;
+
+}
+.flex-space-button{
+    flex-grow: 1;
+}
+.button-left {
+    flex-grow: 3; /* Butonların genişliğini eşit olarak paylaştır */
+    padding: 100px 0; /* Buton içeriği çevresindeki dolgu (padding) */
+    /*background-color: #0c455c; /* Arkaplan rengi */
+    color: #000000; /* Yazı rengi */
+    border: none; /* Kenarlık yok */
+    border-radius: 0; /* Köşe yarıçapı yok */
+    cursor: pointer; /* İşaretçi stilini değiştir */
+    font-size: 45px; /* Düğme metin boyutunu ayarlayın */
+    background-color: #b4afa6;
+}
+.button{
+    flex-grow: 3; /* Butonların genişliğini eşit olarak paylaştır */
+    padding: 100px 0; /* Buton içeriği çevresindeki dolgu (padding) */
+    background-color: #b4afa6; /* Arkaplan rengi */
+    color: #000000; /* Yazı rengi */
+    border: none; /* Kenarlık yok */
+    border-radius: 0; /* Köşe yarıçapı yok */
+    cursor: pointer; /* İşaretçi stilini değiştir */
+    font-size: 45px; /* Düğme metin boyutunu ayarlayın */
+    background-size: cover;
+}
+.button:hover {
+    background-color: #0056b3; /* Butona fare üzerine gelindiğinde farklı bir arka plan rengi uygula */
+}
+.button-left:hover{
+    background-color: #0056b3;
+}
+/* Footer stil ayarları */
+.custom-footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 sütunlu bir grid oluşturun */
+    background-color: #000000;
+    color: #fff;
+    padding: 40px;
+}
+
+.footer-section {
+    margin-left: 15%;
+    padding: 10px;
+}
+
+.footer-section h3 {
+    font-size: 25px;
+}
+
+.footer-section p, .footer-section a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-company {
+    text-align: center;
+    background-color: #222;
+    padding: 10px 10px;
+    color: #fff;
+}
+
+.email-container {
+    display: inline-block; /* Mail ikonu ve metni yan yana yerleştir */
+}
+
+.email-link {
+    color: #0563c7; /* E-posta rengi */
+    text-decoration: none; /* Altı çiziliyi kaldırın */
+}
+
+.email-link:hover {
+    color: #c2c2c2; /* Üzerine gelindiğinde rengi değiştirin (örneğin, turuncu) */
+}
+/* Temel stil ayarları */
+.phone-container {
+    display: inline-block; /* Telefon ikonu ve metni yan yana yerleştirin */
+}
+
+.phone-link {
+    color: #007bff; /* Telefon rengi */
+    text-decoration: none; /* Altı çiziliyi kaldırın */
+}
+
+.phone-link:hover {
+    color: #c2c2c2; /* Üzerine gelindiğinde rengi değiştirin (örneğin, turuncu) */
+}
+.email-container,
+.phone-container {
+    display: block;
+    margin-bottom: 10px; /* İstediğiniz boşluğu ekleyin */
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}

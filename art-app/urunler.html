@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Sayfa Tasarımı</title>
+    <!-- Bootstrap CSS CDN bağlantısı -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <!-- Font Awesome CDN bağlantısı -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* Navbar stilleri */
+        .navbar {
+            color: white;
+            padding: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            
+        }
+        .flex-space {
+            flex: 5;
+        }
+        .flex-space2 {
+            flex: 1;
+        }
+        .navbar-text{
+            flex:5;
+            text-align: center;
+        }
+        .navbar-nav{
+            flex: 2;
+        }
+
+        .navbar-light .navbar-text {
+            color: #000000;
+            font-style: italic;
+            font-family: 'cursive', sans-serif;
+            font-weight: bold; 
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: #000000;
+            flex: 1;
+        }
+
+        .bg-light{
+
+            background-color: #8bc0ae!important;
+        }
+        /* Kartları saran div */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+            background-color: #d0dad6;
+            
+        }
+
+        /* Kart stilleri */
+        .card {
+            width: calc(30% - 20px); /* 3 sütunlu, aralarında 20px boşluk bırakan kartlar */
+            background-color: #8bc0ae;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s; /* Kartın büyüklüğünü animasyonla değiştirmek için */
+            transform-origin: top;
+            z-index: 1;
+        }
+        .card-left {
+            width: calc(30% - 20px); /* 3 sütunlu, aralarında 20px boşluk bırakan kartlar */
+            background-color: #8bc0ae;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s; /* Kartın büyüklüğünü animasyonla değiştirmek için */
+            transform-origin: left top ; /* Sol kenarından büyüme kaynağı */
+            z-index: 1;
+        }
+        .card-right {
+            width: calc(30% - 20px); /* 3 sütunlu, aralarında 20px boşluk bırakan kartlar */
+            background-color: #8bc0ae;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s; /* Kartın büyüklüğünü animasyonla değiştirmek için */
+            transform-origin: right top; /* Sol kenarından büyüme kaynağı */
+            z-index: 1;
+        }
+        .card-buttons {
+            display: flex;
+            justify-content: space-between; /* Düğmeleri sağa ve sola yerleştir */
+            align-items: center; /* Düğmeleri dikey olarak hizala */
+        }
+        .card-img {
+            flex: 5;
+            width: 200px; /* Genişlik 30px */
+            height: auto; /* Yükseklik 50px */
+        }
+        
+        .left-button,
+        .right-button {
+            padding: 5px 10px;
+            background-color: inherit;
+            color: white;
+            border: none;
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        .left-button:hover,
+        .right-button:hover {
+            background-color: #0056b3;
+        }
+        .card:hover {
+            transform: scale(1.5); /* Kartı 1.1 kat büyüt */
+            z-index: 2;
+        }
+        .card-left:hover{
+            transform: scale(1.5);
+            z-index: 2;
+        }
+        .card-right:hover{
+            transform: scale(1.5);
+            z-index: 2;
+        }
+        .icon{
+            filter: invert(1);
+        }
+        .custom-footer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 3 sütunlu bir grid oluşturun */
+            background-color: #222121;
+            color: #fff;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .footer-section {
+            margin-left: 15%;
+            padding: 10px;
+        }
+
+        .footer-section h3 {
+            font-size: 25px;
+        }
+
+        .footer-section p, .footer-section a {
+            font-size: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .footer-company {
+            text-align: center;
+            background-color: #222;
+            padding: 10px 10px;
+            color: #fff;
+        }
+
+        .email-container {
+            display: inline-block; /* Mail ikonu ve metni yan yana yerleştir */
+        }
+
+        .email-link {
+            color: #0563c7; /* E-posta rengi */
+            text-decoration: none; /* Altı çiziliyi kaldırın */
+        }
+
+        .email-link:hover {
+            color: #c2c2c2; /* Üzerine gelindiğinde rengi değiştirin (örneğin, turuncu) */
+        }
+        /* Temel stil ayarları */
+        .phone-container {
+            display: inline-block; /* Telefon ikonu ve metni yan yana yerleştirin */
+        }
+
+        .phone-link {
+            color: #007bff; /* Telefon rengi */
+            text-decoration: none; /* Altı çiziliyi kaldırın */
+        }
+
+        .phone-link:hover {
+            color: #c2c2c2; /* Üzerine gelindiğinde rengi değiştirin (örneğin, turuncu) */
+        }
+        .email-container,
+        .phone-container {
+            display: block;
+            margin-bottom: 10px; /* İstediğiniz boşluğu ekleyin */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- İsim -->
+            <span class="navbar-text">Adem Berker Heykel Atölyesi</span>
+            <!-- Boşluk -->
+            <div class="flex-space"></div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-home"></i> Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-project-diagram"></i> Projeler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-envelope"></i> İletişim</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex-space2"></div>
+            <!-- Menüler -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Sosyal Medya Ikonları -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.instagram.com/adem_brkr_/"><i class="fab fa-instagram"></i> adem_brkr_</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Kartlar Container -->
+    <div class="card-container">
+        <!-- 1. Sıra -->
+        <div class="card-left">
+            <div class="card-body">
+                <div class="card-buttons">
+                    <button class="left-button" onclick="AtaturkPrevious()">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <img class="card-img" src="Ataturk/Atatürk Takım Elbise.jpeg" id="AtaturkCard">
+                    <button class="right-button" onclick="AtaturkNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+              <h5 class="card-title">Gazi Mustafa Kemal Atatürk Silikon Heykel</h5>
+              <p class="card-text">Kart metni burada.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="card-buttons">
+                    <button class="left-button" onclick="MadenPrevious()">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <img class="card-img" src="Maden/Madenci Adam.jpeg" id="MadenCard">
+                    <button class="right-button" onclick="MadenNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+              <h5 class="card-title">Madenciler Silikon Heykel</h5>
+              <p class="card-text">Kart metni burada.</p>
+            </div>
+        </div>
+        <div class="card-right">
+            <div class="card-body">
+                <div class="card-buttons">
+                    <button class="left-button" onclick="MadenciPrevious()">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <img class="card-img" src="Madenci/Madenci - 5.jpeg" id="MadenciCard">
+                    <button class="right-button" onclick="MadenciNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+              <h5 class="card-title">Madenci  Kadın Silikon Heykel</h5>
+              <p class="card-text">Kart metni burada.</p>
+            </div>
+        </div>
+
+        <!-- 2. Sıra -->
+        <div class="card-left">
+            <div class="card-body">
+                <div class="card-buttons">
+                    <button class="left-button" onclick="Kuvayi_MilliyePrevious()">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <img class="card-img" src="Kuvayi-Milliye 1/Kuvayi-Milliye - 3.jpeg" id="Kuvayi-Milliye1Card">
+                    <button class="right-button" onclick="Kuvayi_MilliyeNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+              <h5 class="card-title">Kuvayi-Milliye Silikon Heykel</h5>
+              <p class="card-text">Kart metni burada.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="card-buttons">
+                    <button class="left-button" onclick="Kuvayi_MilliyeTwoPrevious()">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <img class="card-img" src="Kuvayi-Milliye 2/Kuvayi-Milliye.jpeg" id="Kuvayi-Milliye2Card">
+                    <button class="right-button" onclick="Kuvayi_MilliyeTwoNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+              <h5 class="card-title">Kuvayi-Milliye Silikon Heykel</h5>
+              <p class="card-text">Kart metni burada.</p>
+            </div>
+        </div>
+        <div class="card-right">
+            <div class="card-body">
+                <div class="card-buttons">
+                    <button class="left-button" onclick="DönerciPrevious()">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <img class="card-img" src="Dönerci/Dönerci.jpeg" id="DönerciCard">
+                    <button class="right-button" onclick="DönerciNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+              <h5 class="card-title">Dönerci Silikon Heykel</h5>
+              <p class="card-text">Kart metni burada.</p>
+            </div>
+        </div>
+
+        <!-- 3. Sıra -->
+        <div class="card-left">
+            <div class="card-body">
+                <div class="card-buttons">
+                    <button class="left-button" onclick="DenizPrevious()">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <img class="card-img" src="DenizCanlısı\Deniz Canlısı.jpeg" id="DenizCard">
+                    <button class="right-button" onclick="DenizNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+              <h5 class="card-title">Megalodon Heykeli</h5>
+              <p class="card-text">Kart metni burada.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="card-buttons">
+                    <button class="left-button" onclick="EfePrevious()">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <img class="card-img" src="Efe\Efe - Yörük -3.jpg" id="EfeCard">
+                    <button class="right-button" onclick="EfeNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+              <h5 class="card-title">Efe Silikon Heykeli</h5>
+              <p class="card-text">Kart metni burada.</p>
+            </div>
+        </div>
+        <div class="card-right">
+            <div class="card-body">
+                <div class="card-buttons">
+                    <button class="left-button" onclick="FilozofPrevious()">
+                        <i class="icon fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <img class="card-img" src="Filozof\Filozof - 4.jpeg" id="FilozofCard">
+                    <button class="right-button" onclick="FilozofNext()"><i class="icon fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+              <h5 class="card-title">Filozof Silikon Heykeli</h5>
+              <p class="card-text">Kart metni burada.</p>
+        </div>
+    </div>
+    <div class="card-left">
+        <div class="card-body">
+            <div class="card-buttons">
+                <button class="left-button" onclick="OkuzPrevious()">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <img class="card-img" src="Okuz\Öküz Kafası -2.jpeg" id="OkuzCard">
+                <button class="right-button" onclick="OkuzNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+            </div>
+          <h5 class="card-title">Öküz Kafası Heykeli</h5>
+          <p class="card-text">Kart metni burada.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-buttons">
+                <button class="left-button" onclick="YorukPrevious()">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <img class="card-img" src="Yörükler\Efe - Yörük - 6.jpeg" id="YorukCard">
+                <button class="right-button" onclick="YorukNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+            </div>
+          <h5 class="card-title">Yörük Silikon Heykelleri</h5>
+          <p class="card-text">Kart metni burada.</p>
+        </div>
+    </div>
+    <div class="card-right">
+        <div class="card-body">
+            <div class="card-buttons">
+                <button class="left-button" onclick="OthersPrevious()">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <img class="card-img" src="Others\Ameliyat.jpeg" id="OthresCard">
+                <button class="right-button" onclick="OthersNext()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+            </div>
+          <h5 class="card-title">Diğer Silikon Heykeller</h5>
+          <p class="card-text">Kart metni burada.</p>
+        </div>
+    </div>
+    <footer class="custom-footer" id="target-contract">
+        <div class="footer-section">
+            <h3>İletişim</h3>
+            <div class="email-container">
+                <i class="far fa-envelope"></i> <!-- Font Awesome kullanarak mail ikonunu ekleyin -->
+                <a href="mailto:ademberker350@gmail.com" class="email-link">ademberker350@gmail.com</a>
+            </div>
+            <div class="phone-container">
+                <i class="fas fa-phone"></i> <!-- Font Awesome kullanarak telefon ikonunu ekleyin -->
+                <a href="tel:+901234567890" class="phone-link">+90 (123) 456-7890</a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Sosyal Medya</h3>
+            <a href="https://www.instagram.com/adem_brkr_/" class="fab fa-instagram"> adem_brkr_</a>
+        </div>
+    </footer>
+    <script src="scriptProjects.js"></script>
+
+</body>
+</html>

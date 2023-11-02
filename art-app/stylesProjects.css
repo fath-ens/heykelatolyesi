@@ -1,0 +1,52 @@
+/* Temel stil ayarları */
+.card {
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .card-buttons {
+    display: flex;
+    justify-content: space-between; /* Düğmeleri sağa ve sola yerleştir */
+    align-items: center; /* Düğmeleri dikey olarak hizala */
+  }
+  
+  .card-img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .left-button,
+  .right-button {
+    padding: 5px 10px;
+    /*background-color: #007bff;*/
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .left-button:hover,
+  .right-button:hover {
+    background-color: #b9babb;
+  }
+  
+  
+#slideshow-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .slide {
+    display: none;
+    max-width: 100%; /* Resmin maksimum genişliği */
+    height: auto; /* Otomatik yükseklik ayarı */
+  }
+  
+  #prevBtn, #nextBtn {
+    margin-top: 10px;
+  }
+  
